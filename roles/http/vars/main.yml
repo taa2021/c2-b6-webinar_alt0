@@ -1,0 +1,28 @@
+---
+
+# config file
+nginx_site_conf_templ: nginx-local-default.j2
+nginx_site_conf_file: nginx-local-default
+nginx_site_fpm_snip: fastcgi-php-remote.conf
+nginx_sites_snippets: /etc/nginx/snippets
+nginx_sites_enabled: /etc/nginx/sites-enabled
+nginx_sites_available: /etc/nginx/sites-available
+
+conf_php_backends:
+- localhost
+- 127.0.0.1
+- 127.0.0.2
+- 127.0.0.3
+
+ansible_backend_group_name: php_fpm
+
+conf_php_port: '9000'
+conf_site_doc_root: /opt/www/ansible
+
+# the os packages for service
+packages:
+- nginx
+
+# the system services for service
+services:
+- nginx

@@ -1,0 +1,17 @@
+---
+
+- name: php-fpm backend servers
+  hosts: php_fpm
+  remote_user: ubuntu
+  become: yes
+  roles:
+    - users
+    - php
+
+- name: nginx frontend servers
+  hosts: nginx
+  remote_user: ubuntu
+  become: yes
+  roles:
+    - users
+    - http

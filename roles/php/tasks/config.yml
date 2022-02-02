@@ -1,0 +1,31 @@
+---
+
+- name: create site doc root
+  ansible.builtin.file:
+    path: "{{ conf_site_doc_root }}"
+    state: directory
+
+- name: copy site index page
+  ansible.builtin.copy:
+    src:  "{{ conf_site_doc_index }}"
+    dest: "{{ conf_site_doc_root }}/"
+    owner: root
+    group: root
+    mode: '0644'
+  notify:
+    - reload webservices
+
+- name: config listen on IP:PORT
+  ansible.builtin.lineinfile:
+    path: "{{ conf_php_file }}"
+    regexp: '^listen ='
+    line: "listen = 0.0.0.0:{{ conf_php_port }}"
+  notify:
+    - reload webservices
+
+- name: allow connections on http port with iptables
+  ansible.builtin.iptables:
+    chain: INPUT
+    protocol: tcp
+    destination_port: "{{ conf_php_port }}"
+    jump: ACCEPT

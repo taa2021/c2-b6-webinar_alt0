@@ -1,0 +1,15 @@
+---
+
+# config settings
+conf_php_file: /etc/php/7.4/fpm/pool.d/www.conf
+conf_site_doc_index: index.php
+conf_site_doc_root: /opt/www/ansible
+conf_php_port: '9000'
+
+# the os packages for service
+packages:
+- php-fpm=2:7.4+*
+
+# the system services for service
+services:
+- php7.4-fpm
