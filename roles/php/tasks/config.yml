@@ -4,14 +4,17 @@
   ansible.builtin.file:
     path: "{{ conf_site_doc_root }}"
     state: directory
+    owner: root
+    group: www-data
+    mode: '0750'
 
 - name: copy site index page
   ansible.builtin.copy:
     src:  "{{ conf_site_doc_index }}"
     dest: "{{ conf_site_doc_root }}/"
     owner: root
-    group: root
-    mode: '0644'
+    group: www-data
+    mode: '0640'
   notify:
     - reload webservices
 

@@ -2,3 +2,6 @@
 
 - name: reload webservices
   include_tasks: reload.yml
+
+- name: restart webservices
+  include_tasks: restart.yml

@@ -1,94 +1,82 @@
-# $ ansible-playbook site.yml -i hosts
+# $ ansible-playbook site.yml -i hosts 2>&1 | tee out-ansible.txt
 
-PLAY [php-fpm backend servers] *************************************************************************************
+PLAY [php-fpm backend servers] ****************************************************************************************************************
 
-TASK [Gathering Facts] *********************************************************************************************
-ok: [127.0.0.4]
-ok: [127.0.0.2]
-ok: [127.0.0.1]
+TASK [Gathering Facts] ************************************************************************************************************************
 ok: [127.0.0.3]
+ok: [127.0.0.2]
+ok: [127.0.0.4]
+ok: [127.0.0.1]
 
-TASK [users : Ensure user exists and belongs to supergroup] ********************************************************
-ok: [127.0.0.3] => (item={'name': 'ruser', 'ssh': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAHvfDvfxMVMfxvWVHoVik+m7xVfUC7RpThrDJAFpkc6qQHM/n3CV8aPny8b5zG86F7vuV0RxlOOLJZPEBeHW4MnCLE9uH+8kssioLyBekF/N8poewkzeNMAsx+rXt8PmZuLqthhdvjJaC9FNuqmjDzermNPv9RXR7FOpC6kKk3KlOszyiL0+/dIenQzyz//DG2AsAnnB3zKDEGAg+Nyo2Z0NFmuRKHNa0D0ezFMB34FPjw7eyBoYb/UwX46ANmPdqZGsi13up3tOAZ/uZdyZ2ksJ90vXrxEwi8J+8kEoKi+UYNpAjYAb4KVuPG+7aNgorC6i0nYHHJ7JJnsHbbNY+28='})
-ok: [127.0.0.2] => (item={'name': 'ruser', 'ssh': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAHvfDvfxMVMfxvWVHoVik+m7xVfUC7RpThrDJAFpkc6qQHM/n3CV8aPny8b5zG86F7vuV0RxlOOLJZPEBeHW4MnCLE9uH+8kssioLyBekF/N8poewkzeNMAsx+rXt8PmZuLqthhdvjJaC9FNuqmjDzermNPv9RXR7FOpC6kKk3KlOszyiL0+/dIenQzyz//DG2AsAnnB3zKDEGAg+Nyo2Z0NFmuRKHNa0D0ezFMB34FPjw7eyBoYb/UwX46ANmPdqZGsi13up3tOAZ/uZdyZ2ksJ90vXrxEwi8J+8kEoKi+UYNpAjYAb4KVuPG+7aNgorC6i0nYHHJ7JJnsHbbNY+28='})
-ok: [127.0.0.1] => (item={'name': 'ruser', 'ssh': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAHvfDvfxMVMfxvWVHoVik+m7xVfUC7RpThrDJAFpkc6qQHM/n3CV8aPny8b5zG86F7vuV0RxlOOLJZPEBeHW4MnCLE9uH+8kssioLyBekF/N8poewkzeNMAsx+rXt8PmZuLqthhdvjJaC9FNuqmjDzermNPv9RXR7FOpC6kKk3KlOszyiL0+/dIenQzyz//DG2AsAnnB3zKDEGAg+Nyo2Z0NFmuRKHNa0D0ezFMB34FPjw7eyBoYb/UwX46ANmPdqZGsi13up3tOAZ/uZdyZ2ksJ90vXrxEwi8J+8kEoKi+UYNpAjYAb4KVuPG+7aNgorC6i0nYHHJ7JJnsHbbNY+28='})
-ok: [127.0.0.4] => (item={'name': 'ruser', 'ssh': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAHvfDvfxMVMfxvWVHoVik+m7xVfUC7RpThrDJAFpkc6qQHM/n3CV8aPny8b5zG86F7vuV0RxlOOLJZPEBeHW4MnCLE9uH+8kssioLyBekF/N8poewkzeNMAsx+rXt8PmZuLqthhdvjJaC9FNuqmjDzermNPv9RXR7FOpC6kKk3KlOszyiL0+/dIenQzyz//DG2AsAnnB3zKDEGAg+Nyo2Z0NFmuRKHNa0D0ezFMB34FPjw7eyBoYb/UwX46ANmPdqZGsi13up3tOAZ/uZdyZ2ksJ90vXrxEwi8J+8kEoKi+UYNpAjYAb4KVuPG+7aNgorC6i0nYHHJ7JJnsHbbNY+28='})
-
-TASK [users : Configure a ssh auth-key for user] *******************************************************************
-ok: [127.0.0.3] => (item={'name': 'ruser', 'ssh': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAHvfDvfxMVMfxvWVHoVik+m7xVfUC7RpThrDJAFpkc6qQHM/n3CV8aPny8b5zG86F7vuV0RxlOOLJZPEBeHW4MnCLE9uH+8kssioLyBekF/N8poewkzeNMAsx+rXt8PmZuLqthhdvjJaC9FNuqmjDzermNPv9RXR7FOpC6kKk3KlOszyiL0+/dIenQzyz//DG2AsAnnB3zKDEGAg+Nyo2Z0NFmuRKHNa0D0ezFMB34FPjw7eyBoYb/UwX46ANmPdqZGsi13up3tOAZ/uZdyZ2ksJ90vXrxEwi8J+8kEoKi+UYNpAjYAb4KVuPG+7aNgorC6i0nYHHJ7JJnsHbbNY+28='})
-ok: [127.0.0.1] => (item={'name': 'ruser', 'ssh': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAHvfDvfxMVMfxvWVHoVik+m7xVfUC7RpThrDJAFpkc6qQHM/n3CV8aPny8b5zG86F7vuV0RxlOOLJZPEBeHW4MnCLE9uH+8kssioLyBekF/N8poewkzeNMAsx+rXt8PmZuLqthhdvjJaC9FNuqmjDzermNPv9RXR7FOpC6kKk3KlOszyiL0+/dIenQzyz//DG2AsAnnB3zKDEGAg+Nyo2Z0NFmuRKHNa0D0ezFMB34FPjw7eyBoYb/UwX46ANmPdqZGsi13up3tOAZ/uZdyZ2ksJ90vXrxEwi8J+8kEoKi+UYNpAjYAb4KVuPG+7aNgorC6i0nYHHJ7JJnsHbbNY+28='})
-ok: [127.0.0.2] => (item={'name': 'ruser', 'ssh': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAHvfDvfxMVMfxvWVHoVik+m7xVfUC7RpThrDJAFpkc6qQHM/n3CV8aPny8b5zG86F7vuV0RxlOOLJZPEBeHW4MnCLE9uH+8kssioLyBekF/N8poewkzeNMAsx+rXt8PmZuLqthhdvjJaC9FNuqmjDzermNPv9RXR7FOpC6kKk3KlOszyiL0+/dIenQzyz//DG2AsAnnB3zKDEGAg+Nyo2Z0NFmuRKHNa0D0ezFMB34FPjw7eyBoYb/UwX46ANmPdqZGsi13up3tOAZ/uZdyZ2ksJ90vXrxEwi8J+8kEoKi+UYNpAjYAb4KVuPG+7aNgorC6i0nYHHJ7JJnsHbbNY+28='})
-ok: [127.0.0.4] => (item={'name': 'ruser', 'ssh': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAHvfDvfxMVMfxvWVHoVik+m7xVfUC7RpThrDJAFpkc6qQHM/n3CV8aPny8b5zG86F7vuV0RxlOOLJZPEBeHW4MnCLE9uH+8kssioLyBekF/N8poewkzeNMAsx+rXt8PmZuLqthhdvjJaC9FNuqmjDzermNPv9RXR7FOpC6kKk3KlOszyiL0+/dIenQzyz//DG2AsAnnB3zKDEGAg+Nyo2Z0NFmuRKHNa0D0ezFMB34FPjw7eyBoYb/UwX46ANmPdqZGsi13up3tOAZ/uZdyZ2ksJ90vXrxEwi8J+8kEoKi+UYNpAjYAb4KVuPG+7aNgorC6i0nYHHJ7JJnsHbbNY+28='})
-
-TASK [php : Install service] ***************************************************************************************
-ok: [127.0.0.2] => (item=php-fpm=2:7.4+*)
+TASK [php : Install service] ******************************************************************************************************************
 ok: [127.0.0.3] => (item=php-fpm=2:7.4+*)
-ok: [127.0.0.1] => (item=php-fpm=2:7.4+*)
 ok: [127.0.0.4] => (item=php-fpm=2:7.4+*)
+ok: [127.0.0.2] => (item=php-fpm=2:7.4+*)
+ok: [127.0.0.1] => (item=php-fpm=2:7.4+*)
 
-TASK [php : Enable service] ****************************************************************************************
-ok: [127.0.0.3] => (item=php7.4-fpm)
+TASK [php : Enable service] *******************************************************************************************************************
 ok: [127.0.0.2] => (item=php7.4-fpm)
 ok: [127.0.0.1] => (item=php7.4-fpm)
+ok: [127.0.0.3] => (item=php7.4-fpm)
 ok: [127.0.0.4] => (item=php7.4-fpm)
 
-TASK [php : create site doc root] **********************************************************************************
-ok: [127.0.0.3]
-ok: [127.0.0.4]
-ok: [127.0.0.2]
+TASK [php : create site doc root] *************************************************************************************************************
 ok: [127.0.0.1]
-
-TASK [php : copy site index page] **********************************************************************************
 ok: [127.0.0.3]
 ok: [127.0.0.2]
-ok: [127.0.0.1]
 ok: [127.0.0.4]
 
-TASK [php : config listen on IP:PORT] ******************************************************************************
+TASK [php : copy site index page] *************************************************************************************************************
 ok: [127.0.0.2]
 ok: [127.0.0.4]
 ok: [127.0.0.1]
 ok: [127.0.0.3]
 
-TASK [php : allow connections on http port with iptables] **********************************************************
-ok: [127.0.0.2]
+TASK [php : config listen on IP:PORT] *********************************************************************************************************
 ok: [127.0.0.3]
 ok: [127.0.0.1]
 ok: [127.0.0.4]
+ok: [127.0.0.2]
 
-TASK [php : Start service] *****************************************************************************************
+TASK [php : allow connections on http port with iptables] *************************************************************************************
+ok: [127.0.0.4]
+ok: [127.0.0.1]
+ok: [127.0.0.2]
+ok: [127.0.0.3]
+
+TASK [php : Start service] ********************************************************************************************************************
 ok: [127.0.0.2] => (item=php7.4-fpm)
 ok: [127.0.0.1] => (item=php7.4-fpm)
-ok: [127.0.0.4] => (item=php7.4-fpm)
 ok: [127.0.0.3] => (item=php7.4-fpm)
+ok: [127.0.0.4] => (item=php7.4-fpm)
 
-PLAY [nginx frontend servers] **************************************************************************************
+PLAY [nginx frontend servers] *****************************************************************************************************************
 
-TASK [Gathering Facts] *********************************************************************************************
+TASK [Gathering Facts] ************************************************************************************************************************
 ok: [127.0.0.5]
 
-TASK [users : Ensure user exists and belongs to supergroup] ********************************************************
-ok: [127.0.0.5] => (item={'name': 'ruser', 'ssh': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAHvfDvfxMVMfxvWVHoVik+m7xVfUC7RpThrDJAFpkc6qQHM/n3CV8aPny8b5zG86F7vuV0RxlOOLJZPEBeHW4MnCLE9uH+8kssioLyBekF/N8poewkzeNMAsx+rXt8PmZuLqthhdvjJaC9FNuqmjDzermNPv9RXR7FOpC6kKk3KlOszyiL0+/dIenQzyz//DG2AsAnnB3zKDEGAg+Nyo2Z0NFmuRKHNa0D0ezFMB34FPjw7eyBoYb/UwX46ANmPdqZGsi13up3tOAZ/uZdyZ2ksJ90vXrxEwi8J+8kEoKi+UYNpAjYAb4KVuPG+7aNgorC6i0nYHHJ7JJnsHbbNY+28='})
-
-TASK [users : Configure a ssh auth-key for user] *******************************************************************
-ok: [127.0.0.5] => (item={'name': 'ruser', 'ssh': 'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAHvfDvfxMVMfxvWVHoVik+m7xVfUC7RpThrDJAFpkc6qQHM/n3CV8aPny8b5zG86F7vuV0RxlOOLJZPEBeHW4MnCLE9uH+8kssioLyBekF/N8poewkzeNMAsx+rXt8PmZuLqthhdvjJaC9FNuqmjDzermNPv9RXR7FOpC6kKk3KlOszyiL0+/dIenQzyz//DG2AsAnnB3zKDEGAg+Nyo2Z0NFmuRKHNa0D0ezFMB34FPjw7eyBoYb/UwX46ANmPdqZGsi13up3tOAZ/uZdyZ2ksJ90vXrxEwi8J+8kEoKi+UYNpAjYAb4KVuPG+7aNgorC6i0nYHHJ7JJnsHbbNY+28='})
-
-TASK [http : Install service] **************************************************************************************
+TASK [http : Install service] *****************************************************************************************************************
 ok: [127.0.0.5] => (item=nginx)
 
-TASK [http : Enable service] ***************************************************************************************
+TASK [http : Enable service] ******************************************************************************************************************
 ok: [127.0.0.5] => (item=nginx)
 
-TASK [http : remove default nginx package site config] *************************************************************
+TASK [http : Ensure user exists and belongs to supergroup] ************************************************************************************
 ok: [127.0.0.5]
 
-TASK [http : create site doc root] *********************************************************************************
+TASK [http : configure user for nginx service] ************************************************************************************************
 ok: [127.0.0.5]
 
-TASK [http : copy nginx site config] *******************************************************************************
+TASK [http : remove default nginx package site config] ****************************************************************************************
 ok: [127.0.0.5]
 
-TASK [http : show configured backend php-fpm hosts] ****************************************************************
+TASK [http : create site doc root] ************************************************************************************************************
+ok: [127.0.0.5]
+
+TASK [http : copy nginx site config] **********************************************************************************************************
+ok: [127.0.0.5]
+
+TASK [http : show configured backend php-fpm hosts] *******************************************************************************************
 ok: [127.0.0.5] => {
     "changed": false,
     "msg": [
@@ -99,22 +87,93 @@ ok: [127.0.0.5] => {
     ]
 }
 
-TASK [http : copy nginx php-fpm remote snippet] ********************************************************************
+TASK [http : copy nginx php-fpm remote snippet] ***********************************************************************************************
 ok: [127.0.0.5]
 
-TASK [http : enable nginx site] ************************************************************************************
+TASK [http : enable nginx site] ***************************************************************************************************************
 ok: [127.0.0.5]
 
-TASK [http : allow connections on http port with iptables] *********************************************************
-ok: [127.0.0.5]
-
-TASK [http : Start service] ****************************************************************************************
+TASK [http : Start service] *******************************************************************************************************************
 ok: [127.0.0.5] => (item=nginx)
 
-PLAY RECAP *********************************************************************************************************
-127.0.0.1                  : ok=10   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-127.0.0.2                  : ok=10   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-127.0.0.3                  : ok=10   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-127.0.0.4                  : ok=10   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-127.0.0.5                  : ok=13   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+PLAY [test frontend localhost server] *********************************************************************************************************
+
+TASK [Gathering Facts] ************************************************************************************************************************
+ok: [127.0.0.1]
+
+TASK [test : Install test helpers] ************************************************************************************************************
+ok: [127.0.0.1] => (item=wget)
+ok: [127.0.0.1] => (item=html2text)
+
+TASK [test : check site on frontend] **********************************************************************************************************
+changed: [127.0.0.1]
+
+TASK [test : debug] ***************************************************************************************************************************
+ok: [127.0.0.1] => {
+    "msg": [
+        "[PHP_logo]",
+        "****** PHP Version 7.4.3 ******",
+        "                                        Linux example.com 5.11.0-1028-oracle",
+        "System                                  #31~20.04.1-Ubuntu SMP Wed Jan 26 14:",
+        "                                        20:52 UTC 2022 aarch64",
+        "Build Date                              Nov 25 2021 23:16:22",
+        "Server API                              FPM/FastCGI",
+        "Virtual Directory Support               disabled",
+        "Configuration File (php.ini) Path       /etc/php/7.4/fpm",
+        "Loaded Configuration File               /etc/php/7.4/fpm/php.ini"
+    ]
+}
+
+TASK [test : check fs permissions for backend files] ******************************************************************************************
+changed: [127.0.0.1]
+
+TASK [test : debug] ***************************************************************************************************************************
+ok: [127.0.0.1] => {
+    "msg": [
+        "/opt/www:",
+        "total 4",
+        "drwxr-x--- 2 root www-data 4096 Feb  7 18:52 ansible",
+        "",
+        "/opt/www/ansible:",
+        "total 4",
+        "-rw-r----- 1 root www-data 19 Feb  2 20:19 index.php"
+    ]
+}
+
+TASK [test : check active users for nginx and php-fpm daemons] ********************************************************************************
+changed: [127.0.0.1]
+
+TASK [test : debug] ***************************************************************************************************************************
+ok: [127.0.0.1] => {
+    "msg": [
+        "4     0  183277       1  20   0 195520 17316 -      Ss   ?          0:00 php-fpm: master process (/etc/php/7.4/fpm/php-fpm.conf)",
+        "5    33  183278  183277  20   0 195972 13400 -      S    ?          0:00 php-fpm: pool www",
+        "5    33  183279  183277  20   0 195972 13232 -      S    ?          0:00 php-fpm: pool www",
+        "5     0  183513       1  20   0   8112  3148 -      Ss   ?          0:00 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;",
+        "5  1004  206114  183513  20   0   9424  3404 -      S    ?          0:00 nginx: worker process",
+        "5  1004  206115  183513  20   0   9424  3404 -      S    ?          0:00 nginx: worker process",
+        "5  1004  206116  183513  20   0   9424  3404 -      S    ?          0:00 nginx: worker process",
+        "5  1004  206117  183513  20   0   9424  3404 -      S    ?          0:00 nginx: worker process",
+        "0  1000  210478  210476  20   0   2060   484 do_wai S+   pts/7      0:00 /bin/sh -c ps -axwll | grep -E 'nginx|php'",
+        "0  1000  210480  210478  20   0   7692   684 pipe_r S+   pts/7      0:00 grep -E nginx|php"
+    ]
+}
+
+TASK [test : check passwd users for nginx and php-fpm daemons] ********************************************************************************
+changed: [127.0.0.1]
+
+TASK [test : debug] ***************************************************************************************************************************
+ok: [127.0.0.1] => {
+    "msg": [
+        "www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin",
+        "nginxsvc:x:1004:1004::/home/nginxsvc:/bin/sh"
+    ]
+}
+
+PLAY RECAP ************************************************************************************************************************************
+127.0.0.1                  : ok=18   changed=4    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+127.0.0.2                  : ok=8    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+127.0.0.3                  : ok=8    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+127.0.0.4                  : ok=8    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+127.0.0.5                  : ok=12   changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 

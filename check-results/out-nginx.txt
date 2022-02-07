@@ -2,5 +2,5 @@
 
 [PHP_logo]
 ****** PHP Version 7.4.3 ******
-                                        Linux taa.example.com 5.11.0-
-System                                  1028-oracle #31~20.04.1-Ubuntu SMP Wed
+                                        Linux example.com 5.11.0-1028-oracle
+System                                  #31~20.04.1-Ubuntu SMP Wed Jan 26 14:
