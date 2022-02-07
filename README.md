@@ -7,7 +7,7 @@
 ## Решение
 
 - Ansible-роль, настраивающая backend  php-fpm - [здесь](./roles/php/)
-- Ansible-роль, настраивающая frontend php-fpm - [здесь](./roles/http/)
+- Ansible-роль, настраивающая frontend nginx - [здесь](./roles/http/)
 
 ### Примечание
 
